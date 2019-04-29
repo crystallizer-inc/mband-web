@@ -1,0 +1,16 @@
+<?phpxml version="1.0" encoding="UTF-8" ?>
+<configuration>
+ <system.webServer>
+   <rewrite>
+     <rules>
+       <rule name="Redirect001" stopProcessing="true">
+         <match url="(.*)"/>
+         <conditions>
+           <add input="{HTTP_HOST}" pattern="^www\.●●●\.com$" />
+         </conditions>
+         <action type="Redirect" url="http://●●●.com/{R:1}" redirectType="Permanent" />
+       </rule>
+     </rules>
+   </rewrite>
+ </system.webServer>
+</configuration>
