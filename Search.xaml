@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mband.Search"
+             >
+
+    <StackLayout>
+
+        <StackLayout  Margin="20" Grid.Row="0" BackgroundColor="LightGreen" Padding="5,5,5,2">
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <Picker x:Name="Areapicker" HorizontalOptions="Start" Title="地域">
+                    <Picker.Items>
+                        <x:String>地域∇</x:String>
+                        <x:String>銀座</x:String>
+                        <x:String>中野</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Picker x:Name="Agepicker" HorizontalOptions="Fill" Title="年齢">
+                    <Picker.Items>
+                        <x:String>年齢∇</x:String>
+                        <x:String>20代</x:String>
+                        <x:String>30代</x:String>
+                        <x:String>40代</x:String>
+                        <x:String>50代</x:String>
+                        <x:String>60代</x:String>
+                        <x:String>70代</x:String>
+                        <x:String>80代</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Picker x:Name="Dialectpicker" HorizontalOptions="Fill" Title="方言" >
+                    <Picker.Items>
+                        <x:String>方言∇</x:String>
+                        <x:String>関西弁</x:String>
+                        <x:String>熊本弁</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+                <Picker x:Name="Costumepicker" HorizontalOptions="End" Title="衣装" >
+                    <Picker.Items>
+                        <x:String>衣装∇</x:String>
+                        <x:String>カジュアル</x:String>
+                        <x:String>スーツ</x:String>
+                        <x:String>着物</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <Label Text="Wifi"  HorizontalOptions="StartAndExpand" />
+                <Switch x:Name="Wifiswitch" HorizontalOptions="Fill" />
+                <Label Text="カラオケ"  HorizontalOptions="Fill" />
+                <Switch x:Name="Karaokeswitch" HorizontalOptions="End" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <Label Text="カウンター" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding Value, Source={x:Reference Counterstepper}}" HorizontalOptions="End" FontSize="Large" VerticalTextAlignment="Center"/>
+                <Stepper x:Name="Counterstepper" Maximum="10"  Minimum="0" Increment="1" HorizontalOptions="End" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <Label Text="Box" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding Value, Source={x:Reference Boxstepper}}" HorizontalOptions="End" FontSize="Large" VerticalTextAlignment="Center"/>
+                <Stepper x:Name="Boxstepper" Maximum="10"  Minimum="0" Increment="1" HorizontalOptions="End" />
+            </StackLayout>
+
+            <Entry x:Name="freeword" Placeholder="フリーワード"/>
+            <!--         <SearchBar x:Name="searchBar" Placeholder="例)アットホーム" SearchCommand="{Binding OnClicked}" SearchCommandParameter="{Binding Source={x:Reference searchBar}, Path=Text}" HorizontalOptions="StartAndExpand"/>
+-->
+            <Button Text="検索" Clicked="OnClicked" HorizontalOptions="FillAndExpand"  />
+        </StackLayout>
+
+        <StackLayout Grid.Row="0" BackgroundColor="LightCyan" Padding="10,2,10,5">
+            <Label TextColor="Black" HorizontalTextAlignment="End" Text="{Binding Modelss.Count, StringFormat=' {0}件の表示'}" />
+        </StackLayout>
+
+ 
+        <ListView ItemsSource="{Binding Modelss}" HasUnevenRows="true" ItemTapped="OnListViewItemTapped" ItemSelected="OnListViewItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"
+                                       HorizontalOptions="Start"
+                                       WidthRequest="45"
+                                       HeightRequest="45"/>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text= "{Binding Mamaname}" FontSize="Small" TextColor="Black" Style="{DynamicResource TitleStyle}" />
+                                    <Label Text="{Binding Snackname, StringFormat=' ({0})'}" FontSize="Small" TextColor="Black" Style="{DynamicResource TitleStyle}" />
+                                </StackLayout>
+                                <Label Text="{Binding Address}" FontSize="Small" TextColor="Gray" HorizontalOptions = "End" />
+                                <Label Text="{Binding Distance, StringFormat='現在地から {0} km'}" FontSize="Micro" TextColor="Red" HorizontalOptions="End" />
+
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                    <!--                        <ImageCell ImageSource="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"
+                                   Text="{Binding Mamaname}"
+                                                                      
+                                   Detail="{Binding Address}"
+                                   TextColor="Black"  DetailColor="Black" />
+-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

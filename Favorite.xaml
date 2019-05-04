@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mband.View.Favorite">
+    <ContentPage.Content>
+        <ListView  x:Name="favorites"  HasUnevenRows="true" ItemTapped="OnListViewItemTapped" ItemSelected="OnListViewItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Image x:Name="pic" Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"
+                                       HorizontalOptions="Start"
+                                       WidthRequest="45"
+                                       HeightRequest="45"/>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label x:Name="Mama" Text= "{Binding Mamaname}" FontSize="Small" TextColor="Black" Style="{DynamicResource TitleStyle}" />
+                                    <Label x:Name="Snack" Text="{Binding Snackname, StringFormat=' ({0})'}" FontSize="Small" TextColor="Black" Style="{DynamicResource TitleStyle}" />
+                                </StackLayout>
+                                <Label x:Name="jyusyo" Text="{Binding Address}" FontSize="Small" TextColor="Gray" HorizontalOptions = "End" />
+                             
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                    <!--                        <ImageCell ImageSource="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"
+                                   Text="{Binding Mamaname}"
+                                                                      
+                                   Detail="{Binding Address}"
+                                   TextColor="Black"  DetailColor="Black" />
+-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

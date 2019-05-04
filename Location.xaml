@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mband.Location"
+             >
+    <ContentPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                iOS="xamagon.png" Android="icon.png"
+                WinPhone="Assets/xamagon.png" />
+    </ContentPage.Icon>
+    <StackLayout>
+        <Button  Clicked="Button_Clicked"/>
+    </StackLayout>
+
+</ContentPage>

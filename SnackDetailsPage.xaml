@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="mband.SnackDetailsPage">
+    <ScrollView >
+        <StackLayout  Margin="20">
+            <Label x:Name="mamaname" Text="{Binding Mamaname}" HorizontalOptions="Center" Style="{DynamicResource TitleStyle}" />
+            <Label x:Name="snackname"  Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="address" FontAttributes="Italic" HorizontalOptions="Center" />
+
+            <Image  Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"/>
+
+            <Button x:Name="Fav" Text="お気に入り☆" Clicked="OnFavClicked" TextColor="Black" BackgroundColor="LightGoldenrodYellow" />
+
+            <controls:CarouselViewControl x:Name="MainCarouselView"
+                VerticalOptions="Center" HorizontalOptions="FillAndExpand"
+                Position="0" ShowIndicators="True" ShowArrows="True" >
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image  Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"/>
+                            <Image  Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"/>
+                            <Image  Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"/>
+                            <!--                             <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray">
+                           
+                           <Image Aspect="AspectFill" Source="https://pbs.twimg.com/profile_images/493938489067446272/_w64wQ6H.jpeg"/>
+                            <Label Text="{Binding Snackname}" TextColor="Black" VerticalOptions="End" HorizontalOptions="Center"/>
+                        </StackLayout>
+-->
+                        </Grid>
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+
+            <Label x:Name="bithplace" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="introduction0" Text="・紹介" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="introduction" Style="{DynamicResource BodyStyle}" />
+
+            <Label x:Name="menu0" Text="・メニュー" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="menu" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="paymentsystem0" Text="・料金システム" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="paymentsystem" Style="{DynamicResource BodyStyle}" />
+
+            <Label x:Name="paymentmethod0" Text="・お支払方法" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="paymentmethod" Style="{DynamicResource BodyStyle}" />
+            
+        
+            <Label x:Name="number0" Text="・電話" Style="{DynamicResource BodyStyle}" />
+            <Label x:Name="number" Text="{Binding Tell}" Style="{DynamicResource BodyStyle}" TextColor="LightBlue" />
+            <Button Text="電話" Clicked="OnCall" />
+            <Label x:Name="url0" Text="・予約URL"  Style="{DynamicResource BodyStyle}"  TextColor="LightBlue" />
+            <Label x:Name="url"  Style="{DynamicResource BodyStyle}"  TextColor="LightBlue" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
