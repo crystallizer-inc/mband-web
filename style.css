@@ -149,10 +149,10 @@ text-decoration: none;
 		padding: 20px 8px;
 }
 .hiroya-text {
-		margin-right: 16px;
 		flex: 0 0 336px;
 }
 .hiroya-photo {
+		margin-left: 16px;
 		flex: 1 1 auto;
 }
 
