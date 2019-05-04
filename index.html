@@ -21,12 +21,6 @@
 <!-- ヘッダー -->
 
 	<header class="header">
-			<div class="app-ad">
-
-		<img src="images/keyvisual.jpg" alt="">
-
-	</div>
-
 		<h1 class="logo"><a href="index.html"><img src="images/logo.png" alt="スナックの詳細を知りたいならMband!!"></a></h1>
 		
 <p class="app-introduce">
@@ -36,22 +30,69 @@
 <!-- ヘッダーここまで -->
 
 <!-- メイン -->
-
-	<div class="keyvisual">
-
-		<img src="images/keyvisual.jpg" alt="">
-
-	</div>
-
 	<main>
 
 		<nav class="nav">
+using System;
+using System.IO;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-					<div class="app-ad">
+[assembly:XamlCompilation(XamlCompilationOptions.Compile)]
+namespace mband
+{
+	public class App : Application
+	{
+        static FavoriteDatabase database;
 
-		<img src="images/keyvisual.jpg" alt="">
+        public App ()
+		{
+            // The root page of your application
+            MainPage = new NavigationPage(new TabbedPage1())
+            {
+//               Children = {
+//            
+//                    new Search(),
+//                    new Location(),
+//                    new TodoList()
+//                }
+            };
 
-	</div>
+
+        }
+
+        //　DBを格納するためのローカル ファイル パスを返す
+        public static FavoriteDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new FavoriteDatabase(
+                        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "mbandSQLite.db3"));
+                }
+                return database;
+            }
+        }
+
+        public int ResumeAtTodoId { get; set; }
+
+        protected override void OnStart ()
+		{
+			// Handle when your app starts
+		}
+
+		protected override void OnSleep ()
+		{
+			// Handle when your app sleeps
+		}
+
+		protected override void OnResume ()
+		{
+			// Handle when your app resumes
+		}
+	}
+}
 <p class="company">Crystallizer,Inc.</p>
 			<ul>
 
