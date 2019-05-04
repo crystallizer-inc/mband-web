@@ -102,6 +102,14 @@ text-decoration: none;
 
 /* 個別のスタイル */
 /* index.html */
+.app-introduce{
+	margin: 50px 0 40px 0;
+		line-height: 0;
+		text-align: center;
+}
+	
+
+
 .keyvisual{
 		margin: 15px 0 0 0;
 }
