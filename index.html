@@ -57,7 +57,7 @@
         // You may wish to do additional pre-processing on the data before sending it back to the client
         var q = $("#q").val();
         
-        $.post('/home/search',
+        $.post('search.cs',
         {
             q: q,
             countyFacet: countyFacet
