@@ -57,7 +57,7 @@
         // You may wish to do additional pre-processing on the data before sending it back to the client
         var q = $("#q").val();
         
-        $.post('search.cs',
+        $.post('search',
         {
             q: q,
             countyFacet: countyFacet
@@ -120,27 +120,6 @@
 </div>
 
 
-<script type="text/javascript">
-    // Code for Typeahead
-    $(function () {
-        var usgs = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            remote: '/home/suggest?q=%QUERY&fuzzy=true'
-        });
-        usgs.initialize();
-        $('#remote .typeahead').typeahead(null, {
-            name: 'usgs-search',
-            displayKey: 'Text',
-            source: usgs.ttAdapter(),
-            templates: {
-                suggestion: Handlebars.compile('<p>{{Text}}</p>')
-            }
-        }).on('typeahead:selected', function (obj, datum) {
-            console.log(obj);
-            console.log(datum);
-        });
-    });
 </script>		
 		
 		
